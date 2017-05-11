@@ -39,17 +39,13 @@ noremap <Leader>pt :CtrlPTag<CR>
 let g:ackprg = 'ag --vimgrep'
 " Don't jump to the first result automatically
 cnoreabbrev Ack Ack!
-nnoremap <Leader>a :Ack!<Space>
+nnoremap <Leader>f :Ack!<Space>
 
 "--- NERDCommenter ---
 
 let g:NERDCustomDelimiters = {
       \ 'ruby': { 'left': '# ' }
       \ }
-
-"--- FormatComment
-
-noremap <Leader>qc :call FormatComment()<CR>
 
 "--- indentLines ---
 
@@ -111,9 +107,9 @@ let g:session_autosave = 'yes'
 let g:session_autosave_periodic = 10
 let g:session_autoload = 'yes'
 let g:session_default_to_last = 'yes'
-nnoremap <Leader>ss :SaveSession<CR>
-nnoremap <Leader>so :OpenSession<CR>
-nnoremap <Leader>sr :RestartVim<CR>
+" Conflicts: nnoremap <Leader>ss :SaveSession<CR>
+" Conflicts: nnoremap <Leader>so :OpenSession<CR>
+" Conflicts: nnoremap <Leader>sr :RestartVim<CR>
 
 "--- vim-ruby
 "
@@ -141,7 +137,7 @@ nmap <leader>o :VtrOpenRunner({'orientation': 'h', 'percentage': 35})<CR>
 let g:spec_runner_dispatcher = 'call VtrSendCommand("bundle exec {command}")'
 let g:disable_write_on_spec_run = 1
 map <leader>t <plug>RunCurrentSpecFile
-map <leader>s <plug>RunFocusedSpec
+" Conflicting: map <leader>s <plug>RunFocusedSpec
 map <leader>l <plug>RunMostRecentSpec
 
 "--- rainbow_parentheses
@@ -180,13 +176,13 @@ let g:rbpt_colorpairs = [
 let g:sexp_enable_insert_mode_mappings = 0
 
 "--- Neomake
-
-let g:neomake_error_sign = {'text': 'x'}
-let g:neomake_warning_sign = {'text': '!'}
-let g:neomake_message_sign = {'text': 'i'}
-let g:neomake_javascript_enabled_makers = ['eslint']
-
-autocmd! BufWritePost * Neomake
+" Disabling for now - may be causing performance issues:
+" let g:neomake_error_sign = {'text': 'x'}
+" let g:neomake_warning_sign = {'text': '!'}
+" let g:neomake_message_sign = {'text': 'i'}
+" let g:neomake_javascript_enabled_makers = ['eslint']
+" 
+" autocmd! BufWritePost * Neomake
 
 "-- auto-pairs
 

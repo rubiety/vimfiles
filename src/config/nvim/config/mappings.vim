@@ -14,9 +14,20 @@ noremap <C-h> <C-w>h
 noremap <C-l> <C-w>l
 noremap <C-_> <C-w>_
 
-" Tab movement
-"noremap <C-e> gT
-"noremap <C-t> gt
+" Easy and fast tab movement
+nnoremap tn :tabnew<CR>
+nnoremap th :tabfirst<CR>
+nnoremap tk :tabnext<CR>
+nnoremap tj :tabprev<CR>
+nnoremap t1 1gt
+nnoremap t2 2gt
+nnoremap t3 3gt
+nnoremap t4 4gt
+nnoremap t5 5gt
+nnoremap t6 6gt
+nnoremap t7 7gt
+nnoremap t8 8gt
+nnoremap t9 :tablast<CR>
 
 " pressing < and > in visual mode keeps the selection
 vnoremap < <gv
@@ -28,19 +39,31 @@ noremap Q gq
 " Make Y consistent with C and D
 nnoremap Y y$
 
-" Easier way to save
-"map <C-s> <Esc>:w<CR>
-"imap <C-s> <Esc>:w<CR>i
-" Easy way to save and close the current buffer
-"map <C-q> <Esc>:wq<CR>
-"imap <C-q> <Esc>:wq<CR>
-
 " I hit this way too often, let's just no-op it
 noremap K <Esc>
 
 " Make ,h clear the highlight as well as redraw
-nnoremap <Leader>h :nohls<CR>
-inoremap <Leader>h <C-O>:nohls<CR>
+nnoremap <C-\> :nohls<CR>
+inoremap <C-\> <C-O>:nohls<CR>
+
+" For Those People who don't have Caps Lock set to Escape
+imap jj <Esc>
+imap jk <Esc>
+
+" Buffer Management
+noremap <Leader>q :q<CR>
+noremap <Leader>w :w<CR>
+noremap <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+noremap <Leader>tc :tabc
+
+" File Finding
+map <C-n> :cn<CR>
+map <C-m> :cp<CR>
+
+" Easy Splits
+noremap <Leader>v :vsplit<CR>
+noremap <Leader>s :split<CR>
 
 " Paste overwriting everything to the end of the line ($)
 nmap <Leader>p$ "_Dp
@@ -50,6 +73,8 @@ nmap <Leader>po o<Space><Backspace><Esc>p
 nmap <Leader>pc "_ddP
 " Paste overwriting the current/next word (w)
 nmap <Leader>pw viw"_dP
+" Select last pasted text
+nnoremap gp `[v`]
 
 " Join comments so we can easily apply gqc
 vmap <Leader>jc :s/\v[\n ]+#[ ]+/ /g<CR>:nohls<CR>i<Space>#<Space><Esc>
@@ -61,11 +86,3 @@ nmap <Leader>gqp vipQ$
 " Quick way to close tabs
 nmap <Leader>tc :tabc<CR>
 
-" Identify syntax group at cursor
-" http://vim.wikia.com/wiki/Identify_the_syntax_highlighting_group_used_at_the_cursor
-map <Leader>syn :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
-
-" For Those People who don't have Caps Lock set to Escape
-imap jj <Esc>

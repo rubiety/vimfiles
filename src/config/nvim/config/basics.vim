@@ -2,8 +2,8 @@ syntax on
 filetype plugin indent on
 
 " Set mapleader, so that <Leader>-related stuff can be redefined
-let mapleader = ','
-let maplocalleader = ','
+let mapleader = "\\"
+let maplocalleader = "\\"
 
 " Show line numbers
 set number

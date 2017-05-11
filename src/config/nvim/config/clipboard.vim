@@ -1,2 +1,2 @@
 " Use the system clipboard
-set clipboard=unnamed
+" Actually, don't: set clipboard=unnamed
