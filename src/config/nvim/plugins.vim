@@ -70,6 +70,7 @@ Plug 'vim-scripts/IndentAnything'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-session'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'rust-lang/rust.vim'
 
 " less
 Plug 'https://gist.github.com/369178.git'

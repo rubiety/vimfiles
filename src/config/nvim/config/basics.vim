@@ -40,3 +40,5 @@ set backspace=indent,eol,start
 
 " Show partial commands in status line
 set showcmd
+
+set mouse=a

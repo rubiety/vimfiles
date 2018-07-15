@@ -1,5 +1,5 @@
 " Syntax coloring lines that are too long as it just slows down the world
-set synmaxcol=128
+set synmaxcol=256
 
 " I've got a fast terminal, send me more characters for redrawing
 set ttyfast
